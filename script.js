@@ -560,20 +560,50 @@
       submitBtn.classList.add('loading');
       submitBtn.disabled = true;
 
-      // Simulação de envio direto assíncrono para geral@cobrik.co.mz
+      // Email oficial de destino para recepção de propostas
+      const targetEmail = 'contact@cobrik.co.mz';
+
+      // Mensagem estruturada e formal pré-definida
+      const subject = `[COBRIK Engenharia] Pedido de Proposta — ${name} (${service})`;
+      
+      const body = 
+`==================================================
+SOLICITAÇÃO DE CONSULTA E PROPOSTA TÉCNICA
+COBRIK — SOCIEDADE UNIPESSOAL, LIMITADA
+==================================================
+
+1. DADOS DE CONTACTO:
+• Nome / Entidade: ${name}
+• Contacto Telefónico: ${phone}
+• Email Profissional: ${email || 'Não informado'}
+
+2. DETALHES DO PROJECTO:
+• Especialidade Pretendida: ${service}
+• Localização Prevista da Obra: ${location || 'A combinar / A definir'}
+
+3. DESCRIÇÃO DO PROJECTO / NECESSIDADES:
+${message}
+
+--------------------------------------------------
+Submetido através do formulário oficial da COBRIK (cobrik.co.mz)
+Data: ${new Date().toLocaleDateString('pt-PT')}
+==================================================`;
+
+      const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      // Breve pausa para transição suave de UI
       setTimeout(() => {
         submitBtn.classList.remove('loading');
         submitBtn.disabled = false;
 
-        const locationNotice = location
-          ? `na localização prevista de <em>${location}</em>`
-          : `(localização e pormenores a alinhar directamente por email)`;
+        // Abre o cliente de email do utilizador com todos os campos pré-preenchidos
+        window.location.href = mailtoUrl;
 
-        // Apresenta confirmação elegante sem sair do site
+        // Exibe mensagem de confirmação elegante na página
         showAlert(
-          `<strong>✓ Mensagem enviada com sucesso!</strong><br>` +
-          `A sua solicitação para a especialidade <em>"${service}"</em> ${locationNotice} foi registada e encaminhada directamente para a nossa direcção de engenharia em <strong>geral@cobrik.co.mz</strong>.<br>` +
-          `Entraremos em contacto através do número <strong>${phone}</strong>${email ? ' ou do email <strong>' + email + '</strong>' : ''} no prazo máximo de 24 horas úteis.`,
+          `<strong>✓ A abrir o seu email...</strong><br>` +
+          `A sua mensagem para a especialidade <em>"${service}"</em> foi estruturada e encaminhada para <strong>${targetEmail}</strong>.<br>` +
+          `Se a janela do seu email não abrir automaticamente, clique em: <a href="${mailtoUrl}" style="color: var(--brick); font-weight: 600; text-decoration: underline;">Abrir e Enviar Email Agora</a>.`,
           'success'
         );
 
@@ -586,7 +616,7 @@
           });
           serviceInput.value = servicePills[0].dataset.value || 'Construção Civil de Raiz';
         }
-      }, 950);
+      }, 350);
     });
   };
 
