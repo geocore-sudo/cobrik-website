@@ -49,7 +49,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#conteudo">Saltar para o conteúdo principal</a>
+  <a class="skip-link" href="#conteudo" data-i18n="skip_link">Saltar para o conteúdo principal</a>
 
   <!-- ═══════════════════════════════════════
        HEADER (NAVBAR CLEAN & LOGO CLICÁVEL AO TOPO)
@@ -63,15 +63,22 @@
 
       <!-- Menu de Navegação (Desktop & Mobile Drawer) -->
       <nav class="nav" id="nav-principal" aria-label="Navegação principal">
-        <a href="#topo" class="nav-link active">Início</a>
-        <a href="#empresa" class="nav-link">Sobre Nós</a>
-        <a href="#servicos" class="nav-link">Serviços</a>
-        <a href="#projectos" class="nav-link">Projectos</a>
-        <a href="#galeria" class="nav-link">Estaleiro</a>
-        <a href="#metodologia" class="nav-link">Metodologia</a>
-        <a href="#contactos" class="nav-link">Contactos</a>
+        <a href="#topo" class="nav-link active" data-i18n="nav_inicio">Início</a>
+        <a href="#empresa" class="nav-link" data-i18n="nav_sobre">Sobre Nós</a>
+        <a href="#servicos" class="nav-link" data-i18n="nav_servicos">Serviços</a>
+        <a href="#projectos" class="nav-link" data-i18n="nav_projectos">Projectos</a>
+        <a href="#galeria" class="nav-link" data-i18n="nav_estaleiro">Estaleiro</a>
+        <a href="#metodologia" class="nav-link" data-i18n="nav_metodologia">Metodologia</a>
+        <a href="#contactos" class="nav-link" data-i18n="nav_contactos">Contactos</a>
         <div class="nav-mobile-cta">
-          <a href="#contactos" class="btn btn-primary" style="width: 100%; justify-content: center;">
+          <div class="nav-mobile-lang">
+            <span class="nav-mobile-lang-title">Idioma / Language</span>
+            <div class="nav-mobile-lang-grid">
+              <button type="button" class="nav-mobile-lang-btn active" data-lang="pt">🇲🇿 Português</button>
+              <button type="button" class="nav-mobile-lang-btn" data-lang="en">🇬🇧 English</button>
+            </div>
+          </div>
+          <a href="#contactos" class="btn btn-primary" style="width: 100%; justify-content: center;" data-i18n="nav_cta">
             Contacte-nos
           </a>
           <a href="tel:+258875458750" class="btn btn-outline" style="width: 100%; justify-content: center; color: var(--ink); border-color: var(--sand-200); font-family: var(--font-mono); font-size: 11.5px; margin-top: 8px;">
@@ -81,11 +88,47 @@
       </nav>
 
       <div class="header-actions">
-        <!-- <div class="header-badge">
-          <span class="live-pulse" aria-hidden="true"></span>
-          <span>Maputo, MZ</span>
-        </div> -->
-        <a href="#contactos" class="btn btn-primary header-cta">
+        <!-- Selector de Idioma (PT / EN) -->
+        <div class="lang-selector" id="lang-selector">
+          <button
+            type="button"
+            class="lang-btn"
+            id="lang-menu-btn"
+            aria-expanded="false"
+            aria-haspopup="true"
+            aria-label="Escolher idioma / Select language"
+            title="Escolher idioma / Select language"
+          >
+            <svg class="lang-globe-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+            </svg>
+            <span class="lang-current" id="lang-current-label">PT</span>
+            <svg class="lang-arrow-icon" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+
+          <div class="lang-dropdown" id="lang-dropdown" role="menu" aria-label="Idiomas disponíveis">
+            <button type="button" class="lang-option active" data-lang="pt" role="menuitem">
+              <span class="lang-option-left">
+                <span class="lang-flag" aria-hidden="true">🇲🇿</span>
+                <span>Português</span>
+              </span>
+              <span class="lang-check" aria-hidden="true">✓</span>
+            </button>
+            <button type="button" class="lang-option" data-lang="en" role="menuitem">
+              <span class="lang-option-left">
+                <span class="lang-flag" aria-hidden="true">🇬🇧</span>
+                <span>English</span>
+              </span>
+              <span class="lang-check" aria-hidden="true">✓</span>
+            </button>
+          </div>
+        </div>
+
+        <a href="#contactos" class="btn btn-primary header-cta" data-i18n="nav_cta">
           Contacte-nos
         </a>
         <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav-principal">
@@ -130,21 +173,21 @@
             </span>
           </div> -->
 
-          <h1 class="hero-title hero-reveal" id="hero-heading">
+          <h1 class="hero-title hero-reveal" id="hero-heading" data-i18n="hero_title">
             A PRECISÃO DA <span class="highlight-line">ENGENHARIA,</span><br>
             A SOLIDEZ DA <em>CONSTRUÇÃO.</em>
           </h1>
 
-          <p class="hero-lead hero-reveal">
+          <p class="hero-lead hero-reveal" data-i18n="hero_lead">
             Transformamos visões em marcos arquitectónicos e infraestruturas com rigor técnico, acompanhamento contínuo e o equilíbrio perfeito entre o betão e a nobreza do tijolo.
           </p>
 
           <div class="hero-actions hero-reveal">
-            <a class="btn btn-primary hero-btn" href="#servicos">
+            <a class="btn btn-primary hero-btn" href="#servicos" data-i18n="hero_btn_servicos">
               EXPLORAR SERVIÇOS
               <span class="btn-arrow" aria-hidden="true">→</span>
             </a>
-            <a class="btn btn-outline hero-btn" href="#contactos">
+            <a class="btn btn-outline hero-btn" href="#contactos" data-i18n="hero_btn_contactos">
               CONTACTE-NOS
             </a>
           </div>
@@ -162,19 +205,19 @@
         <div class="hero-stats-strip hero-reveal">
           <div class="hero-stat-card">
             <span class="hero-stat-val" data-counter="3000000" data-format="currency">3.000.000 MT</span>
-            <span class="hero-stat-label">Capital Social Integral</span>
+            <span class="hero-stat-label" data-i18n="hero_stat_1">Capital Social Integral</span>
           </div>
           <div class="hero-stat-card">
             <span class="hero-stat-val" data-counter="5" data-suffix="+">5+</span>
-            <span class="hero-stat-label">Áreas de Actuação Técnica</span>
+            <span class="hero-stat-label" data-i18n="hero_stat_2">Áreas de Actuação Técnica</span>
           </div>
           <div class="hero-stat-card">
             <span class="hero-stat-val" data-counter="100" data-suffix="%">100%</span>
-            <span class="hero-stat-label">Rigor & Fiscalização</span>
+            <span class="hero-stat-label" data-i18n="hero_stat_3">Rigor & Fiscalização</span>
           </div>
           <div class="hero-stat-card">
             <span class="hero-stat-val">Maputo</span>
-            <span class="hero-stat-label">Sede & Base Operacional</span>
+            <span class="hero-stat-label" data-i18n="hero_stat_4">Sede & Base Operacional</span>
           </div>
         </div>
       </div>
@@ -188,68 +231,68 @@
       <div class="container">
         <div class="section-kicker">
           <span class="kicker-num">01</span>
-          <span>QUEM SOMOS & GOVERNAÇÃO</span>
+          <span data-i18n="about_kicker">QUEM SOMOS & GOVERNAÇÃO</span>
         </div>
 
         <div class="about-layout">
           <div class="about-info reveal">
             <!-- Título no estilo Montserrat Bold com destaque de linha e itálico editorial -->
-            <h2 class="section-title-bold" id="empresa-heading">
+            <h2 class="section-title-bold" id="empresa-heading" data-i18n="about_title">
               <span class="highlight-line-title">MAIS DO QUE</span><br>
               UMA CONSTRUTORA.<br>
               <em>SOLIDEZ E PRECISÃO</em><br>
               EM CADA ETAPA.
             </h2>
 
-            <p class="about-lead">
+            <p class="about-lead" data-i18n="about_lead">
               A <strong>COBRIK – Sociedade Unipessoal, Limitada</strong> actua no sector da engenharia civil e construção em Moçambique, combinando a precisão matemática do cálculo com a nobreza e autenticidade dos materiais fundamentais.
             </p>
 
-            <p class="about-desc">
+            <p class="about-desc" data-i18n="about_desc">
               Começamos por compreender o terreno, as condições geotécnicas e os objectivos de cada cliente. A partir daí, planeamos, coordenamos os intervenientes e fiscalizamos cada fase dos trabalhos contratados com transparência e responsabilidade técnica.
             </p>
 
             <!-- Abas Interativas (Visão / Estatutos & Governação / Segurança HSE) -->
             <div class="tabs-component">
               <div class="tabs-nav" role="tablist" aria-label="Separadores da Empresa">
-                <button class="tab-btn active" id="tab-btn-visao" role="tab" aria-selected="true" aria-controls="tab-visao" data-tab="visao">
+                <button class="tab-btn active" id="tab-btn-visao" role="tab" aria-selected="true" aria-controls="tab-visao" data-tab="visao" data-i18n="tab_visao">
                   01. Visão & Rigor
                 </button>
-                <button class="tab-btn" id="tab-btn-legal" role="tab" aria-selected="false" aria-controls="tab-legal" data-tab="legal">
+                <button class="tab-btn" id="tab-btn-legal" role="tab" aria-selected="false" aria-controls="tab-legal" data-tab="legal" data-i18n="tab_legal">
                   02. Governação & Dados Legais
                 </button>
-                <button class="tab-btn" id="tab-btn-hse" role="tab" aria-selected="false" aria-controls="tab-hse" data-tab="hse">
+                <button class="tab-btn" id="tab-btn-hse" role="tab" aria-selected="false" aria-controls="tab-hse" data-tab="hse" data-i18n="tab_hse">
                   03. Segurança no Trabalho (HSE)
                 </button>
               </div>
 
               <!-- Aba 1: Visão -->
               <div class="tab-pane active" id="tab-visao" role="tabpanel" aria-labelledby="tab-btn-visao">
-                <p>
+                <p data-i18n="tab_visao_p">
                   Acreditamos que a durabilidade e sustentabilidade das obras nascem do cálculo rigoroso e do domínio dos materiais. Cumprimos escrupulosamente os cadernos de encargos, assegurando acompanhamento técnico ao cliente do primeiro ensaio à recepção definitiva.
                 </p>
               </div>
 
               <!-- Aba 2: Dados Estatutários Oficiais -->
               <div class="tab-pane" id="tab-legal" role="tabpanel" aria-labelledby="tab-btn-legal">
-                <p>
+                <p data-i18n="tab_legal_p">
                   Sociedade comercial por quotas constituída ao abrigo da legislação da República de Moçambique, com total conformidade fiscal e transparência institucional:
                 </p>
                 <div class="legal-grid">
                   <div class="legal-item">
-                    <span class="legal-label">Denominação</span>
+                    <span class="legal-label" data-i18n="legal_lbl_1">Denominação</span>
                     <span class="legal-val">COBRIK – SU, Lda.</span>
                   </div>
                   <div class="legal-item">
-                    <span class="legal-label">Gerente Geral</span>
+                    <span class="legal-label" data-i18n="legal_lbl_2">Gerente Geral</span>
                     <span class="legal-val">Anssul Khan</span>
                   </div>
                   <div class="legal-item">
-                    <span class="legal-label">Capital Social</span>
-                    <span class="legal-val">3.000.000,00 MT (100% Subscrito)</span>
+                    <span class="legal-label" data-i18n="legal_lbl_3">Capital Social</span>
+                    <span class="legal-val" data-i18n="legal_val_3">3.000.000,00 MT (100% Subscrito)</span>
                   </div>
                   <div class="legal-item">
-                    <span class="legal-label">Sede Estatutária</span>
+                    <span class="legal-label" data-i18n="legal_lbl_4">Sede Estatutária</span>
                     <span class="legal-val">Av. Nkwame Nkrumah 525, Antúrio, Flat 24, Maputo</span>
                   </div>
                 </div>
@@ -257,7 +300,7 @@
 
               <!-- Aba 3: Segurança HSE -->
               <div class="tab-pane" id="tab-hse" role="tabpanel" aria-labelledby="tab-btn-hse">
-                <p>
+                <p data-i18n="tab_hse_p">
                   Prática rigorosa da política de <strong>Zero Acidentes</strong>. Equipas com Equipamento de Protecção Individual (EPI) completo, procedimentos de segurança em altura e controlo laboratorial de provetes de betão e armaduras de aço.
                 </p>
               </div>
@@ -269,26 +312,26 @@
             <figure class="about-frame">
               <img src="images/about-team.jpg" alt="Equipa de engenharia civil da COBRIK em Maputo analisando projectos" loading="lazy">
               <figcaption class="about-frame-badge">
-                <span>ESTALEIRO TÉCNICO · MAPUTO</span>
+                <span data-i18n="about_badge">ESTALEIRO TÉCNICO · MAPUTO</span>
               </figcaption>
             </figure>
 
             <div class="fact-card-grid">
               <div class="fact-card-item">
-                <span class="fact-label">SEDE E OPERAÇÃO</span>
-                <strong class="fact-val">Maputo, Moçambique</strong>
+                <span class="fact-label" data-i18n="fact_lbl_1">SEDE E OPERAÇÃO</span>
+                <strong class="fact-val" data-i18n="fact_val_1">Maputo, Moçambique</strong>
               </div>
               <div class="fact-card-item">
-                <span class="fact-label">REGIME JURÍDICO</span>
-                <strong class="fact-val">Código Comercial MZ</strong>
+                <span class="fact-label" data-i18n="fact_lbl_2">REGIME JURÍDICO</span>
+                <strong class="fact-val" data-i18n="fact_val_2">Código Comercial MZ</strong>
               </div>
               <div class="fact-card-item">
-                <span class="fact-label">CAPITAL REALIZADO</span>
+                <span class="fact-label" data-i18n="fact_lbl_3">CAPITAL REALIZADO</span>
                 <strong class="fact-val">3.000.000 MT</strong>
               </div>
               <div class="fact-card-item">
-                <span class="fact-label">RESPONSABILIDADE</span>
-                <strong class="fact-val">100% Verificada</strong>
+                <span class="fact-label" data-i18n="fact_lbl_4">RESPONSABILIDADE</span>
+                <strong class="fact-val" data-i18n="fact_val_4">100% Verificada</strong>
               </div>
             </div>
           </div>
@@ -306,15 +349,15 @@
           <div class="header-left">
             <div class="section-kicker light">
               <span class="kicker-num">02</span>
-              <span>ÁREAS DE ACTUAÇÃO & ENGENHARIA</span>
+              <span data-i18n="services_kicker">ÁREAS DE ACTUAÇÃO & ENGENHARIA</span>
             </div>
-            <h2 class="section-title-bold light" id="servicos-heading">
+            <h2 class="section-title-bold light" id="servicos-heading" data-i18n="services_title">
               DO CÁLCULO ESTRUTURAL<br>
               À <em>CHAVE NA MÃO.</em>
             </h2>
           </div>
           <div class="header-right">
-            <p>
+            <p data-i18n="services_desc">
               Serviços estruturados que acompanham todas as fases de uma obra civil, com rigor analítico, medições transparentes e presença técnica contínua.
             </p>
           </div>
@@ -322,12 +365,12 @@
 
         <!-- Filtros Interativos de Serviços -->
         <div class="service-tabs-nav reveal" role="tablist" aria-label="Filtro de serviços">
-          <button class="service-filter-btn active" data-service-filter="all">Todas as Especialidades (5)</button>
-          <button class="service-filter-btn" data-service-filter="construcao">Construção Civil</button>
-          <button class="service-filter-btn" data-service-filter="reabilitacao">Reabilitação</button>
-          <button class="service-filter-btn" data-service-filter="fiscalizacao">Fiscalização</button>
-          <button class="service-filter-btn" data-service-filter="imobiliario">Empreendimentos</button>
-          <button class="service-filter-btn" data-service-filter="equipamentos">Equipamentos</button>
+          <button class="service-filter-btn active" data-service-filter="all" data-i18n="filter_all">Todas as Especialidades (5)</button>
+          <button class="service-filter-btn" data-service-filter="construcao" data-i18n="filter_construcao">Construção Civil</button>
+          <button class="service-filter-btn" data-service-filter="reabilitacao" data-i18n="filter_reabilitacao">Reabilitação</button>
+          <button class="service-filter-btn" data-service-filter="fiscalizacao" data-i18n="filter_fiscalizacao">Fiscalização</button>
+          <button class="service-filter-btn" data-service-filter="imobiliario" data-i18n="filter_imobiliario">Empreendimentos</button>
+          <button class="service-filter-btn" data-service-filter="equipamentos" data-i18n="filter_equipamentos">Equipamentos</button>
         </div>
 
         <!-- Grelha de Serviços (Responsiva em Colunas) -->
@@ -335,111 +378,111 @@
           <!-- 01: Construção Civil -->
           <article class="service-card reveal" data-service-cat="construcao">
             <div class="service-card-top">
-              <span class="service-card-num">01 // ESTRUTURAS</span>
+              <span class="service-card-num" data-i18n="scard_1_num">01 // ESTRUTURAS</span>
               <div class="service-card-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <rect x="3" y="10" width="18" height="11" rx="1.5"/><path d="M7 10V6a5 5 0 0110 0v4"/>
                 </svg>
               </div>
             </div>
-            <h3>Construção Civil & Obras Públicas</h3>
-            <p>
+            <h3 data-i18n="scard_1_title">Construção Civil & Obras Públicas</h3>
+            <p data-i18n="scard_1_desc">
               Execução de edifícios residenciais, corporativos e infraestruturas viárias. Fundações profundas, lajes maciças em betão armado e alvenaria estrutural de alta precisão.
             </p>
             <ul class="service-deliverables">
-              <li>Projectos de estabilidade & betão armado</li>
-              <li>Obras públicas e infraestruturas urbanas</li>
-              <li>Controlo e ensaios laboratoriais de compressão</li>
+              <li data-i18n="scard_1_li1">Projectos de estabilidade & betão armado</li>
+              <li data-i18n="scard_1_li2">Obras públicas e infraestruturas urbanas</li>
+              <li data-i18n="scard_1_li3">Controlo e ensaios laboratoriais de compressão</li>
             </ul>
-            <a href="#contactos" class="service-card-action">Solicitar Proposta ↗</a>
+            <a href="#contactos" class="service-card-action" data-i18n="scard_cta">Solicitar Proposta ↗</a>
           </article>
 
           <!-- 02: Reabilitação -->
           <article class="service-card reveal" data-service-cat="reabilitacao">
             <div class="service-card-top">
-              <span class="service-card-num">02 // RESTAURO</span>
+              <span class="service-card-num" data-i18n="scard_2_num">02 // RESTAURO</span>
               <div class="service-card-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M3 21h18"/><path d="M5 21V9l7-6 7 6v12"/><rect x="10" y="13" width="4" height="8"/>
                 </svg>
               </div>
             </div>
-            <h3>Reabilitação, Restauro & Conservação</h3>
-            <p>
+            <h3 data-i18n="scard_2_title">Reabilitação, Restauro & Conservação</h3>
+            <p data-i18n="scard_2_desc">
               Recuperação de imóveis e reforço estrutural de elementos degradados. Substituição de redes técnicas, modernização de interiores e impermeabilizações de coberturas.
             </p>
             <ul class="service-deliverables">
-              <li>Diagnóstico de patologias e estabilidade</li>
-              <li>Reforço estrutural em betão e aço</li>
-              <li>Remodelação integral de espaços comerciais</li>
+              <li data-i18n="scard_2_li1">Diagnóstico de patologias e estabilidade</li>
+              <li data-i18n="scard_2_li2">Reforço estrutural em betão e aço</li>
+              <li data-i18n="scard_2_li3">Remodelação integral de espaços comerciais</li>
             </ul>
-            <a href="#contactos" class="service-card-action">Solicitar Proposta ↗</a>
+            <a href="#contactos" class="service-card-action" data-i18n="scard_cta">Solicitar Proposta ↗</a>
           </article>
 
           <!-- 03: Fiscalização -->
           <article class="service-card reveal" data-service-cat="fiscalizacao">
             <div class="service-card-top">
-              <span class="service-card-num">03 // COORDENAÇÃO</span>
+              <span class="service-card-num" data-i18n="scard_3_num">03 // COORDENAÇÃO</span>
               <div class="service-card-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 4"/>
                 </svg>
               </div>
             </div>
-            <h3>Gestão, Fiscalização & Consultoria</h3>
-            <p>
+            <h3 data-i18n="scard_3_title">Gestão, Fiscalização & Consultoria</h3>
+            <p data-i18n="scard_3_desc">
               Controlo rigoroso da execução no estaleiro em defesa do dono da obra. Monitorização de cronogramas físico-financeiros, medições de auto e garantia de qualidade.
             </p>
             <ul class="service-deliverables">
-              <li>Fiscalização técnica residente em estaleiro</li>
-              <li>Controlo orçamental e relatórios de progresso</li>
-              <li>Garantia de conformidade com o projecto</li>
+              <li data-i18n="scard_3_li1">Fiscalização técnica residente em estaleiro</li>
+              <li data-i18n="scard_3_li2">Controlo orçamental e relatórios de progresso</li>
+              <li data-i18n="scard_3_li3">Garantia de conformidade com o projecto</li>
             </ul>
-            <a href="#contactos" class="service-card-action">Solicitar Proposta ↗</a>
+            <a href="#contactos" class="service-card-action" data-i18n="scard_cta">Solicitar Proposta ↗</a>
           </article>
 
           <!-- 04: Imobiliário -->
           <article class="service-card reveal" data-service-cat="imobiliario">
             <div class="service-card-top">
-              <span class="service-card-num">04 // DESENVOLVIMENTO</span>
+              <span class="service-card-num" data-i18n="scard_4_num">04 // DESENVOLVIMENTO</span>
               <div class="service-card-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="8" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/><rect x="13" y="13" width="8" height="8" rx="1.5"/>
                 </svg>
               </div>
             </div>
-            <h3>Empreendimentos Imobiliários</h3>
-            <p>
+            <h3 data-i18n="scard_4_title">Empreendimentos Imobiliários</h3>
+            <p data-i18n="scard_4_desc">
               Promoção, desenvolvimento e gestão de empreendimentos residenciais e comerciais em Maputo. Da viabilidade técnica e financeira ao licenciamento camarário.
             </p>
             <ul class="service-deliverables">
-              <li>Estudos de viabilidade económica e técnica</li>
-              <li>Licenciamento no Conselho Municipal de Maputo</li>
-              <li>Coordenação global de empreendimentos</li>
+              <li data-i18n="scard_4_li1">Estudos de viabilidade económica e técnica</li>
+              <li data-i18n="scard_4_li2">Licenciamento no Conselho Municipal de Maputo</li>
+              <li data-i18n="scard_4_li3">Coordenação global de empreendimentos</li>
             </ul>
-            <a href="#contactos" class="service-card-action">Solicitar Proposta ↗</a>
+            <a href="#contactos" class="service-card-action" data-i18n="scard_cta">Solicitar Proposta ↗</a>
           </article>
 
           <!-- 05: Equipamentos -->
           <article class="service-card reveal" data-service-cat="equipamentos">
             <div class="service-card-top">
-              <span class="service-card-num">05 // LOGÍSTICA</span>
+              <span class="service-card-num" data-i18n="scard_5_num">05 // LOGÍSTICA</span>
               <div class="service-card-icon" aria-hidden="true">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
                   <path d="M4 19L12 4l8 15"/><path d="M8 13h8"/>
                 </svg>
               </div>
             </div>
-            <h3>Materiais & Aluguer de Equipamentos</h3>
-            <p>
+            <h3 data-i18n="scard_5_title">Materiais & Aluguer de Equipamentos</h3>
+            <p data-i18n="scard_5_desc">
               Comércio e distribuição de materiais cerâmicos e inertes certificados. Aluguer de maquinaria pesada, gruas torre, andaimes tubulares e betoneiras industriais.
             </p>
             <ul class="service-deliverables">
-              <li>Aluguer de máquinas com operador qualificado</li>
-              <li>Tijolos cerâmicos e materiais de alta resistência</li>
-              <li>Montagem e certificação de andaimes em obra</li>
+              <li data-i18n="scard_5_li1">Aluguer de máquinas com operador qualificado</li>
+              <li data-i18n="scard_5_li2">Tijolos cerâmicos e materiais de alta resistência</li>
+              <li data-i18n="scard_5_li3">Montagem e certificação de andaimes em obra</li>
             </ul>
-            <a href="#contactos" class="service-card-action">Solicitar Proposta ↗</a>
+            <a href="#contactos" class="service-card-action" data-i18n="scard_cta">Solicitar Proposta ↗</a>
           </article>
         </div>
       </div>
@@ -455,15 +498,15 @@
           <div class="header-left">
             <div class="section-kicker">
               <span class="kicker-num">03</span>
-              <span>CAPACIDADE TÉCNICA & ÂMBITOS DE INTERVENÇÃO</span>
+              <span data-i18n="projects_kicker">CAPACIDADE TÉCNICA & ÂMBITOS DE INTERVENÇÃO</span>
             </div>
-            <h2 class="section-title-bold" id="projectos-heading">
+            <h2 class="section-title-bold" id="projectos-heading" data-i18n="projects_title">
               ENGENHARIA E CONSTRUÇÃO,<br>
               <em>DA FUNDAÇÃO AO ACABAMENTO.</em>
             </h2>
           </div>
           <div class="header-right">
-            <p>
+            <p data-i18n="projects_desc">
               Actuamos no mercado moçambicano com rigor normativo (REBAP/Eurocódigos), segurança integral (HSE) e metodologias avançadas de gestão e orçamentação analítica. Clique em qualquer área técnica para consultar as especificações completas.
             </p>
           </div>
@@ -471,11 +514,11 @@
 
         <!-- Filtros de Categorias -->
         <div class="portfolio-filters reveal" role="group" aria-label="Filtro de âmbitos técnicos">
-          <button class="portfolio-filter-btn active" data-filter="all">Todos os Âmbitos (6)</button>
-          <button class="portfolio-filter-btn" data-filter="edificacao">Edificação & Habitação</button>
-          <button class="portfolio-filter-btn" data-filter="corporativo">Comercial & Corporativo</button>
-          <button class="portfolio-filter-btn" data-filter="infraestrutura">Infraestruturas</button>
-          <button class="portfolio-filter-btn" data-filter="gestao">Fiscalização & Consultoria</button>
+          <button class="portfolio-filter-btn active" data-filter="all" data-i18n="pfilter_all">Todos os Âmbitos (6)</button>
+          <button class="portfolio-filter-btn" data-filter="edificacao" data-i18n="pfilter_edificacao">Edificação & Habitação</button>
+          <button class="portfolio-filter-btn" data-filter="corporativo" data-i18n="pfilter_corporativo">Comercial & Corporativo</button>
+          <button class="portfolio-filter-btn" data-filter="infraestrutura" data-i18n="pfilter_infraestrutura">Infraestruturas</button>
+          <button class="portfolio-filter-btn" data-filter="gestao" data-i18n="pfilter_gestao">Fiscalização & Consultoria</button>
         </div>
 
         <!-- Grelha de Capacidades Técnicas (Responsiva) -->
@@ -484,20 +527,20 @@
           <article class="project-card reveal" data-category="edificacao" data-project-id="edificacao-raiz">
             <div class="project-card-image">
               <img src="images/project-building.jpg" alt="Construção Civil & Edificação de Raiz pela COBRIK em Moçambique" loading="lazy">
-              <span class="project-card-tag">01 / Edificação de Raiz</span>
+              <span class="project-card-tag" data-i18n="pcard_1_tag">01 / Edificação de Raiz</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Maputo & Território Nacional</span>
-                <span class="project-card-year">Habitação & Edifícios</span>
+                <span class="project-card-loc" data-i18n="pcard_1_loc">Maputo & Território Nacional</span>
+                <span class="project-card-year" data-i18n="pcard_1_year">Habitação & Edifícios</span>
               </div>
-              <h3 class="project-card-title">Construção Civil & Edificação de Raiz</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_1_title">Construção Civil & Edificação de Raiz</h3>
+              <p class="project-card-desc" data-i18n="pcard_1_desc">
                 Execução integral de edifícios multifamiliares, residências contemporâneas e condomínios fechados. Domínio de fundações profundas e directas, estruturas em betão armado segundo o REBAP e coordenação turnkey.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Normas: REBAP / Eurocódigos</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_1_scope">Normas: REBAP / Eurocódigos</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -506,20 +549,20 @@
           <article class="project-card reveal" data-category="corporativo" data-project-id="estruturas-corporativas">
             <div class="project-card-image">
               <img src="images/project-commercial.jpg" alt="Edifícios Comerciais e Sedes Corporativas" loading="lazy">
-              <span class="project-card-tag">02 / Corporativo</span>
+              <span class="project-card-tag" data-i18n="pcard_2_tag">02 / Corporativo</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Centros Empresariais</span>
-                <span class="project-card-year">Comercial & Sedes</span>
+                <span class="project-card-loc" data-i18n="pcard_2_loc">Centros Empresariais</span>
+                <span class="project-card-year" data-i18n="pcard_2_year">Comercial & Sedes</span>
               </div>
-              <h3 class="project-card-title">Edifícios Comerciais & Sedes Corporativas</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_2_title">Edifícios Comerciais & Sedes Corporativas</h3>
+              <p class="project-card-desc" data-i18n="pcard_2_desc">
                 Construção de escritórios, sedes empresariais e superfícies comerciais com grandes vãos livres, lajes fungiformes, fachadas de eficiência bioclimática e coordenação rigorosa de AVAC, dados e segurança.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Estruturas Mistas & Turnkey</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_2_scope">Estruturas Mistas & Turnkey</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -528,20 +571,20 @@
           <article class="project-card reveal" data-category="edificacao" data-project-id="reabilitacao-retrofit">
             <div class="project-card-image">
               <img src="images/ACABAMENTO.jpg" alt="Reabilitação Estrutural e Retrofit Técnico" loading="lazy">
-              <span class="project-card-tag">03 / Retrofit & Restauro</span>
+              <span class="project-card-tag" data-i18n="pcard_3_tag">03 / Retrofit & Restauro</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Intervenção Especializada</span>
-                <span class="project-card-year">Patologias & Reforço</span>
+                <span class="project-card-loc" data-i18n="pcard_3_loc">Intervenção Especializada</span>
+                <span class="project-card-year" data-i18n="pcard_3_year">Patologias & Reforço</span>
               </div>
-              <h3 class="project-card-title">Reabilitação Estrutural & Retrofit Técnico</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_3_title">Reabilitação Estrutural & Retrofit Técnico</h3>
+              <p class="project-card-desc" data-i18n="pcard_3_desc">
                 Diagnóstico e reparação de patologias do betão, corrosão de armaduras e fissuração. Aplicação de argamassas tixotrópicas de alta resistência, encamisamento de pilares e reforço com vigas metálicas.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Ensaios Não-Destrutivos & Reforço</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_3_scope">Ensaios Não-Destrutivos & Reforço</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -550,20 +593,20 @@
           <article class="project-card reveal" data-category="infraestrutura" data-project-id="infraestruturas-pesadas">
             <div class="project-card-image">
               <img src="images/project-infra.jpg" alt="Infraestruturas Viárias e Obras de Arte" loading="lazy">
-              <span class="project-card-tag">04 / Infraestruturas</span>
+              <span class="project-card-tag" data-i18n="pcard_4_tag">04 / Infraestruturas</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Vias & Plataformas</span>
-                <span class="project-card-year">Obras de Arte</span>
+                <span class="project-card-loc" data-i18n="pcard_4_loc">Vias & Plataformas</span>
+                <span class="project-card-year" data-i18n="pcard_4_year">Obras de Arte</span>
               </div>
-              <h3 class="project-card-title">Infraestruturas Viárias & Obras de Arte</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_4_title">Infraestruturas Viárias & Obras de Arte</h3>
+              <p class="project-card-desc" data-i18n="pcard_4_desc">
                 Engenharia de infraestruturas pesadas com foco em muros de suporte em betão armado e gabiões, passagens hidráulicas, valas de drenagem pluvial e pavimentações estruturadas com maquinaria própria.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Controlo Laboratorial Sistemático</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_4_scope">Controlo Laboratorial Sistemático</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -572,20 +615,20 @@
           <article class="project-card reveal" data-category="gestao" data-project-id="fiscalizacao-auditoria">
             <div class="project-card-image">
               <img src="images/about-team.jpg" alt="Fiscalização Técnica e Gestão de Empreitadas" loading="lazy">
-              <span class="project-card-tag">05 / Fiscalização Técnica</span>
+              <span class="project-card-tag" data-i18n="pcard_5_tag">05 / Fiscalização Técnica</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Direcção Técnica Independente</span>
-                <span class="project-card-year">Supervisão Total</span>
+                <span class="project-card-loc" data-i18n="pcard_5_loc">Direcção Técnica Independente</span>
+                <span class="project-card-year" data-i18n="pcard_5_year">Supervisão Total</span>
               </div>
-              <h3 class="project-card-title">Fiscalização Técnica & Gestão de Empreitadas</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_5_title">Fiscalização Técnica & Gestão de Empreitadas</h3>
+              <p class="project-card-desc" data-i18n="pcard_5_desc">
                 Supervisão técnica independente para donos de obra. Verificação minuciosa de cadernos de encargos, ensaios de compressão de betão a 28 dias, validação de autos e implementação das directrizes de HSE.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Auditoria Técnica & Normas HSE</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_5_scope">Auditoria Técnica & Normas HSE</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -594,20 +637,20 @@
           <article class="project-card reveal" data-category="gestao" data-project-id="orcamentacao-planeamento">
             <div class="project-card-image">
               <img src="images/gallery-structure.jpg" alt="Orçamentação Analítica e Engenharia de Custos" loading="lazy">
-              <span class="project-card-tag">06 / Engenharia de Custos</span>
+              <span class="project-card-tag" data-i18n="pcard_6_tag">06 / Engenharia de Custos</span>
             </div>
             <div class="project-card-body">
               <div class="project-card-meta">
-                <span class="project-card-loc">Consultoria & Concursos</span>
-                <span class="project-card-year">Gantt & Custos</span>
+                <span class="project-card-loc" data-i18n="pcard_6_loc">Consultoria & Concursos</span>
+                <span class="project-card-year" data-i18n="pcard_6_year">Gantt & Custos</span>
               </div>
-              <h3 class="project-card-title">Orçamentação Analítica & Planeamento</h3>
-              <p class="project-card-desc">
+              <h3 class="project-card-title" data-i18n="pcard_6_title">Orçamentação Analítica & Planeamento</h3>
+              <p class="project-card-desc" data-i18n="pcard_6_desc">
                 Mapas de quantidades rigorosos, composição de preços unitários e cronogramas físico-financeiros em Gantt. Planeamento de compras técnicas e gestão de desvios para assegurar orçamentos transparentes.
               </p>
               <div class="project-card-footer">
-                <span class="project-card-scope">Mapas de Quantidades & Gantt</span>
-                <span class="project-card-link">Ver Especificações ↗</span>
+                <span class="project-card-scope" data-i18n="pcard_6_scope">Mapas de Quantidades & Gantt</span>
+                <span class="project-card-link" data-i18n="pcard_link">Ver Especificações ↗</span>
               </div>
             </div>
           </article>
@@ -625,15 +668,15 @@
           <div class="header-left">
             <div class="section-kicker light">
               <span class="kicker-num">04</span>
-              <span>REGISTO DE ESTALEIRO & RIGOR CONSTRUTIVO</span>
+              <span data-i18n="gallery_kicker">REGISTO DE ESTALEIRO & RIGOR CONSTRUTIVO</span>
             </div>
-            <h2 class="section-title-bold light" id="galeria-heading">
+            <h2 class="section-title-bold light" id="galeria-heading" data-i18n="gallery_title">
               A PERFEIÇÃO TÉCNICA VIVE<br>
               NO <em>DETALHE INVISÍVEL.</em>
             </h2>
           </div>
           <div class="header-right">
-            <p>
+            <p data-i18n="gallery_desc">
               Registo fotográfico da execução no terreno. Da precisão das armaduras de aço e cofragens aos acabamentos cerâmicos mais exigentes.
             </p>
           </div>
@@ -641,11 +684,11 @@
 
         <!-- Filtros da Galeria -->
         <div class="portfolio-filters reveal" role="group" aria-label="Filtro da galeria de estaleiro">
-          <button class="portfolio-filter-btn active" data-gallery-filter="all">Todos os Registos (7)</button>
-          <button class="portfolio-filter-btn" data-gallery-filter="estrutura">Estruturas & Betão</button>
-          <button class="portfolio-filter-btn" data-gallery-filter="acabamento">Alvenarias & Acabamentos</button>
-          <button class="portfolio-filter-btn" data-gallery-filter="obra">Equipas & Maquinaria</button>
-          <button class="portfolio-filter-btn" data-gallery-filter="infra">Infraestruturas</button>
+          <button class="portfolio-filter-btn active" data-gallery-filter="all" data-i18n="gfilter_all">Todos os Registos (7)</button>
+          <button class="portfolio-filter-btn" data-gallery-filter="estrutura" data-i18n="gfilter_estrutura">Estruturas & Betão</button>
+          <button class="portfolio-filter-btn" data-gallery-filter="acabamento" data-i18n="gfilter_acabamento">Alvenarias & Acabamentos</button>
+          <button class="portfolio-filter-btn" data-gallery-filter="obra" data-i18n="gfilter_obra">Equipas & Maquinaria</button>
+          <button class="portfolio-filter-btn" data-gallery-filter="infra" data-i18n="gfilter_infra">Infraestruturas</button>
         </div>
 
         <!-- Grelha da Galeria (7 Fotos Reais de Execução) -->
@@ -654,8 +697,8 @@
           <figure class="gallery-card span-2 reveal" data-gallery-cat="estrutura">
             <img src="images/gallery-structure.jpg" alt="Cofragem e armadura de pilares de betão armado em estaleiro de Maputo" loading="lazy">
             <figcaption>
-              <span>ESTRUTURA // COFRAGEM E ARMADURAS DE PILARES</span>
-              <span>01 / BETÃO ARMADO</span>
+              <span data-i18n="gal_1_title">ESTRUTURA // COFRAGEM E ARMADURAS DE PILARES</span>
+              <span data-i18n="gal_1_sub">01 / BETÃO ARMADO</span>
             </figcaption>
           </figure>
 
@@ -663,8 +706,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="estrutura">
             <img src="images/project-building.jpg" alt="Edificação estrutural e betonagem de lajes em altura" loading="lazy">
             <figcaption>
-              <span>EDIFICAÇÃO // SUPERESTRUTURA EM ALTURA</span>
-              <span>02 / LAJES & PILARES</span>
+              <span data-i18n="gal_2_title">EDIFICAÇÃO // SUPERESTRUTURA EM ALTURA</span>
+              <span data-i18n="gal_2_sub">02 / LAJES & PILARES</span>
             </figcaption>
           </figure>
 
@@ -672,8 +715,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="estrutura">
             <img src="images/project-commercial.jpg" alt="Estruturas mistas e montagem de grandes vãos" loading="lazy">
             <figcaption>
-              <span>ESTRUTURA METÁLICA // GRANDES VÃOS</span>
-              <span>03 / ESTRUTURA</span>
+              <span data-i18n="gal_3_title">ESTRUTURA METÁLICA // GRANDES VÃOS</span>
+              <span data-i18n="gal_3_sub">03 / ESTRUTURA</span>
             </figcaption>
           </figure>
 
@@ -681,8 +724,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="infra">
             <img src="images/project-infra.jpg" alt="Infraestruturas viárias, drenagem e obras de arte" loading="lazy">
             <figcaption>
-              <span>INFRAESTRUTURAS // OBRAS DE ARTE & VIAS</span>
-              <span>04 / INFRA</span>
+              <span data-i18n="gal_4_title">INFRAESTRUTURAS // OBRAS DE ARTE & VIAS</span>
+              <span data-i18n="gal_4_sub">04 / INFRA</span>
             </figcaption>
           </figure>
 
@@ -690,8 +733,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="obra">
             <img src="images/MAQUINARIA.jpg" alt="Parque de maquinaria pesada e logística de estaleiro" loading="lazy">
             <figcaption>
-              <span>EQUIPAMENTO // LOGÍSTICA & MAQUINARIA</span>
-              <span>05 / ESTALEIRO</span>
+              <span data-i18n="gal_5_title">EQUIPAMENTO // LOGÍSTICA & MAQUINARIA</span>
+              <span data-i18n="gal_5_sub">05 / ESTALEIRO</span>
             </figcaption>
           </figure>
 
@@ -699,8 +742,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="acabamento">
             <img src="images/ACABAMENTO.jpg" alt="Alvenaria técnica de tijolo à vista e acabamentos finos" loading="lazy">
             <figcaption>
-              <span>ACABAMENTOS // ALVENARIA TÉCNICA</span>
-              <span>06 / DETALHE</span>
+              <span data-i18n="gal_6_title">ACABAMENTOS // ALVENARIA TÉCNICA</span>
+              <span data-i18n="gal_6_sub">06 / DETALHE</span>
             </figcaption>
           </figure>
 
@@ -708,8 +751,8 @@
           <figure class="gallery-card reveal" data-gallery-cat="obra">
             <img src="images/EM OBRA.jpg" alt="Equipa técnica em operação de campo com equipamento de protecção individual" loading="lazy">
             <figcaption>
-              <span>SEGURANÇA & RIGOR // EQUIPA EM OPERAÇÃO</span>
-              <span>07 / HSE EM CAMPO</span>
+              <span data-i18n="gal_7_title">SEGURANÇA & RIGOR // EQUIPA EM OPERAÇÃO</span>
+              <span data-i18n="gal_7_sub">07 / HSE EM CAMPO</span>
             </figcaption>
           </figure>
         </div>
@@ -724,18 +767,18 @@
       <div class="container">
         <div class="section-kicker">
           <span class="kicker-num">05</span>
-          <span>COMO TRABALHAMOS · METODOLOGIA DE 4 FASES</span>
+          <span data-i18n="method_kicker">COMO TRABALHAMOS · METODOLOGIA DE 4 FASES</span>
         </div>
 
         <div class="section-header-split reveal">
           <div class="header-left">
-            <h2 class="section-title-bold" id="metodologia-heading">
+            <h2 class="section-title-bold" id="metodologia-heading" data-i18n="method_title">
               CLAREZA ABSOLUTA EM CADA<br>
               <em>ETAPA DO PROCESSO.</em>
             </h2>
           </div>
           <div class="header-right">
-            <p>
+            <p data-i18n="method_desc">
               Sem improvisos. O nosso método assegura que cada decisão de engenharia seja fundamentada em estudos técnicos validados e controlo rigoroso de estaleiro.
             </p>
           </div>
@@ -744,32 +787,32 @@
         <div class="method-grid">
           <article class="method-card reveal">
             <span class="method-step-num">01</span>
-            <h3>Diagnóstico & Levantamento</h3>
-            <p>
+            <h3 data-i18n="mstep_1_title">Diagnóstico & Levantamento</h3>
+            <p data-i18n="mstep_1_desc">
               Analisamos a geotecnia do solo, topografia do terreno e enquadramento regulamentar no Município de Maputo para definir as premissas de cálculo.
             </p>
           </article>
 
           <article class="method-card reveal">
             <span class="method-step-num">02</span>
-            <h3>Engenharia & Planeamento</h3>
-            <p>
+            <h3 data-i18n="mstep_2_title">Engenharia & Planeamento</h3>
+            <p data-i18n="mstep_2_desc">
               Elaboração dos projectos de estabilidade, redes e especialidades. Orçamentação analítica detalhada com cronograma físico-financeiro (Curva S).
             </p>
           </article>
 
           <article class="method-card reveal">
             <span class="method-step-num">03</span>
-            <h3>Execução com Fiscalização</h3>
-            <p>
+            <h3 data-i18n="mstep_3_title">Execução com Fiscalização</h3>
+            <p data-i18n="mstep_3_desc">
               Implementação dos trabalhos com engenheiros e encarregados residentes. Controlo minucioso de qualidade, segurança no trabalho e ensaios de betão.
             </p>
           </article>
 
           <article class="method-card reveal">
             <span class="method-step-num">04</span>
-            <h3>Ensaios Finais & Entrega</h3>
-            <p>
+            <h3 data-i18n="mstep_4_title">Ensaios Finais & Entrega</h3>
+            <p data-i18n="mstep_4_desc">
               Verificação exaustiva de todas as instalações, telas finais ("as-built"), licença de utilização e acompanhamento no período de garantia da obra.
             </p>
           </article>
@@ -785,7 +828,7 @@
       <div class="container">
         <div class="quote-container reveal">
           <div class="quote-icon" aria-hidden="true">“</div>
-          <blockquote class="quote-text">
+          <blockquote class="quote-text" data-i18n="cred_quote">
             "A nossa engenharia assenta num princípio inegociável: construir com a precisão dos números e a nobreza dos materiais fundamentais."
           </blockquote>
           <!-- <div class="quote-author">
@@ -808,23 +851,23 @@
         <div>
           <div class="section-kicker light">
             <span class="kicker-num">07</span>
-            <span>CONSULTORIA TÉCNICA & CONTACTO DIRECTO</span>
+            <span data-i18n="contact_kicker">CONSULTORIA TÉCNICA & CONTACTO DIRECTO</span>
           </div>
 
-          <h2 class="section-title-bold light" id="contactos-heading">
+          <h2 class="section-title-bold light" id="contactos-heading" data-i18n="contact_title">
             VAMOS DAR INÍCIO À SUA<br>
             <em>PRÓXIMA CONSTRUÇÃO.</em>
           </h2>
 
-          <p class="contact-lead">
+          <p class="contact-lead" data-i18n="contact_lead">
             Partilhe os detalhes do seu projecto ou terreno. A nossa direcção de engenharia elabora uma análise técnica preliminar e proposta orçamental ajustada.
           </p>
         </div>
 
         <div class="contact-office-card">
           <div class="contact-channel-item">
-            <span class="contact-channel-label">SEDE ESTATUTÁRIA</span>
-            <span class="contact-channel-val">
+            <span class="contact-channel-label" data-i18n="contact_lbl_hq">SEDE ESTATUTÁRIA</span>
+            <span class="contact-channel-val" data-i18n="contact_val_hq">
               Avenida Nkwame Nkrumah, n.º 525<br>
               Prédio Antúrio, 3.º Andar, Flat 24<br>
               Cidade de Maputo — Moçambique
@@ -834,28 +877,29 @@
               href="https://maps.google.com/?q=Avenida+Nkwame+Nkrumah+525+Maputo"
               target="_blank"
               rel="noopener noreferrer"
+              data-i18n="contact_map_btn"
             >
               Abrir no Google Maps ↗
             </a>
           </div>
 
           <div class="contact-channel-item">
-            <span class="contact-channel-label">EMAIL OFICIAL</span>
+            <span class="contact-channel-label" data-i18n="contact_lbl_email">EMAIL OFICIAL</span>
             <span class="contact-channel-val">
               <a href="mailto:contact@cobrik.co.mz">contact@cobrik.co.mz</a>
             </span>
           </div>
 
           <div class="contact-channel-item">
-            <span class="contact-channel-label">TELEFONE DE CONTACTO</span>
+            <span class="contact-channel-label" data-i18n="contact_lbl_phone">TELEFONE DE CONTACTO</span>
             <span class="contact-channel-val">
               <a href="tel:+258875458750">+258 87 545 8750</a>
             </span>
           </div>
 
           <div class="contact-channel-item">
-            <span class="contact-channel-label">CAPITAL SOCIAL & REGISTO</span>
-            <span class="contact-channel-val mono">
+            <span class="contact-channel-label" data-i18n="contact_lbl_cap">CAPITAL SOCIAL & REGISTO</span>
+            <span class="contact-channel-val mono" data-i18n="contact_val_cap">
               3.000.000,00 MT · Sociedade Unipessoal, Lda.
             </span>
           </div>
@@ -865,8 +909,8 @@
       <!-- Formulário -->
       <div class="contact-form-box reveal">
         <div class="form-header">
-          <h3>Pedido de Consulta & Proposta</h3>
-          <p>
+          <h3 data-i18n="form_heading">Pedido de Consulta & Proposta</h3>
+          <p data-i18n="form_desc">
             Preencha os campos abaixo. A sua solicitação será preparada directamente
             para <strong>contact@cobrik.co.mz</strong>.
           </p>
@@ -875,23 +919,25 @@
         <form id="contact-form" novalidate>
           <div class="form-row">
             <div class="form-group">
-              <label for="form-name">Nome Completo *</label>
+              <label for="form-name" data-i18n="lbl_name">Nome Completo *</label>
               <input
                 id="form-name"
                 name="name"
                 type="text"
                 placeholder="Ex: Engenheiro Silva"
+                data-i18n-placeholder="form_placeholder_name"
                 required
               >
             </div>
 
             <div class="form-group">
-              <label for="form-phone">Contacto Telefónico *</label>
+              <label for="form-phone" data-i18n="lbl_phone">Contacto Telefónico *</label>
               <input
                 id="form-phone"
                 name="phone"
                 type="tel"
                 placeholder="+258 87 545 8750"
+                data-i18n-placeholder="form_placeholder_phone"
                 required
               >
             </div>
@@ -899,7 +945,7 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label for="form-email">
+              <label for="form-email" data-i18n="lbl_email">
                 Email Profissional <span class="optional-tag">(Opcional)</span>
               </label>
               <input
@@ -907,48 +953,49 @@
                 name="email"
                 type="email"
                 placeholder="seuemail@empresa.co.mz"
+                data-i18n-placeholder="form_placeholder_email"
               >
             </div>
 
             <div class="form-group">
-              <label for="form-location">
-                Localização Prevista da Obra
-                <span class="optional-tag">(Opcional)</span>
+              <label for="form-location" data-i18n="lbl_location">
+                Localização Prevista da Obra <span class="optional-tag">(Opcional)</span>
               </label>
               <input
                 id="form-location"
                 name="location"
                 type="text"
                 placeholder="Ex: Maputo, Matola ou a combinar..."
+                data-i18n-placeholder="form_placeholder_location"
               >
             </div>
           </div>
 
           <!-- Seletor de Especialidade -->
           <div class="form-group form-group-full">
-            <label for="form-service">
-              Especialidade Pretendida
-              <span class="optional-tag">(Opcional)</span>
+            <label for="form-service" data-i18n="lbl_service">
+              Especialidade Pretendida <span class="optional-tag">(Opcional)</span>
             </label>
 
             <select id="form-service" name="service">
-              <option value="">Selecione uma especialidade</option>
-              <option value="Construção Civil de Raiz">Construção de Raiz</option>
-              <option value="Reabilitação Estrutural">Reabilitação &amp; Restauro</option>
-              <option value="Fiscalização Técnica">Fiscalização Técnica</option>
-              <option value="Empreendimentos Imobiliários">Empreendimentos</option>
-              <option value="Aluguer de Equipamentos">Aluguer de Equipamentos</option>
-              <option value="Consulta Geral / Outro">Consulta Geral</option>
+              <option value="" data-i18n="opt_default">Selecione uma especialidade</option>
+              <option value="Construção Civil de Raiz" data-i18n="opt_1">Construção de Raiz</option>
+              <option value="Reabilitação Estrutural" data-i18n="opt_2">Reabilitação &amp; Restauro</option>
+              <option value="Fiscalização Técnica" data-i18n="opt_3">Fiscalização Técnica</option>
+              <option value="Empreendimentos Imobiliários" data-i18n="opt_4">Empreendimentos</option>
+              <option value="Aluguer de Equipamentos" data-i18n="opt_5">Aluguer de Equipamentos</option>
+              <option value="Consulta Geral / Outro" data-i18n="opt_6">Consulta Geral</option>
             </select>
           </div>
 
           <div class="form-group form-group-full">
-            <label for="form-message">Breve Descrição do Projecto *</label>
+            <label for="form-message" data-i18n="lbl_message">Breve Descrição do Projecto *</label>
             <textarea
               id="form-message"
               name="message"
               rows="4"
               placeholder="Indique a área aproximada, fase do projecto ou principais necessidades..."
+              data-i18n-placeholder="form_placeholder_message"
               required
             ></textarea>
           </div>
@@ -959,7 +1006,7 @@
               class="btn btn-primary btn-submit-full"
               id="btn-submit-form"
             >
-              <span class="btn-text">Enviar Mensagem Directa</span>
+              <span class="btn-text" data-i18n="btn_enviar">Enviar Mensagem Directa</span>
               <span class="btn-spinner" aria-hidden="true"></span>
             </button>
           </div>
@@ -999,15 +1046,15 @@
         <p class="modal-desc" id="modal-desc">Descrição completa do projecto com dados de engenharia e materiais executados.</p>
         <div class="modal-specs-grid">
           <div class="modal-spec-item">
-            <span>ÁREA DE CONSTRUÇÃO</span>
+            <span data-i18n="modal_lbl_area">ÁREA DE CONSTRUÇÃO</span>
             <strong id="modal-area">4.800 m²</strong>
           </div>
           <div class="modal-spec-item">
-            <span>ESTADO</span>
+            <span data-i18n="modal_lbl_status">ESTADO</span>
             <strong id="modal-status">Concluído</strong>
           </div>
           <div class="modal-spec-item">
-            <span>ÂMBITO TÉCNICO</span>
+            <span data-i18n="modal_lbl_scope">ÂMBITO TÉCNICO</span>
             <strong id="modal-scope">Empreitada Geral & Betão</strong>
           </div>
         </div>
@@ -1024,7 +1071,7 @@
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
-    <span>Contacte-nos</span>
+    <span data-i18n="nav_cta">Contacte-nos</span>
   </a>
 
 
@@ -1039,43 +1086,43 @@
           <a class="footer-brand-wrap" href="#topo" aria-label="COBRIK — Voltar ao Início">
             <img src="images/COBRICK-02.png" alt="COBRIK Engenharia e Construção" class="footer-logo">
           </a>
-          <p class="footer-brand-bio">
+          <p class="footer-brand-bio" data-i18n="footer_bio">
             Sociedade comercial de direito moçambicano vocacionada para a execução de empreitadas de engenharia civil, obras públicas, restauro estrutural e fiscalização técnica de elevado rigor.
           </p>
         </div>
 
         <div class="footer-col-nav">
-          <h4 class="footer-heading">Navegação</h4>
+          <h4 class="footer-heading" data-i18n="footer_heading_nav">Navegação</h4>
           <ul class="footer-links">
-            <li><a href="#topo">Início</a></li>
-            <li><a href="#empresa">Sobre Nós</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#projectos">Projectos</a></li>
-            <li><a href="#galeria">Estaleiro</a></li>
-            <li><a href="#metodologia">Metodologia</a></li>
-            <li><a href="#contactos">Contactos</a></li>
+            <li><a href="#topo" data-i18n="nav_inicio">Início</a></li>
+            <li><a href="#empresa" data-i18n="nav_sobre">Sobre Nós</a></li>
+            <li><a href="#servicos" data-i18n="nav_servicos">Serviços</a></li>
+            <li><a href="#projectos" data-i18n="nav_projectos">Projectos</a></li>
+            <li><a href="#galeria" data-i18n="nav_estaleiro">Estaleiro</a></li>
+            <li><a href="#metodologia" data-i18n="nav_metodologia">Metodologia</a></li>
+            <li><a href="#contactos" data-i18n="nav_contactos">Contactos</a></li>
           </ul>
         </div>
 
         <div class="footer-col-services">
-          <h4 class="footer-heading">Especialidades</h4>
+          <h4 class="footer-heading" data-i18n="footer_heading_serv">Especialidades</h4>
           <ul class="footer-links">
-            <li><a href="#servicos">Construção Civil & Raiz</a></li>
-            <li><a href="#servicos">Reabilitação Estrutural</a></li>
-            <li><a href="#servicos">Fiscalização Técnica</a></li>
-            <li><a href="#servicos">Empreendimentos</a></li>
-            <li><a href="#servicos">Aluguer de Equipamento</a></li>
+            <li><a href="#servicos" data-i18n="fserv_1">Construção Civil & Raiz</a></li>
+            <li><a href="#servicos" data-i18n="fserv_2">Reabilitação Estrutural</a></li>
+            <li><a href="#servicos" data-i18n="fserv_3">Fiscalização Técnica</a></li>
+            <li><a href="#servicos" data-i18n="fserv_4">Empreendimentos</a></li>
+            <li><a href="#servicos" data-i18n="fserv_5">Aluguer de Equipamento</a></li>
           </ul>
         </div>
 
         <div class="footer-col-contact">
-          <h4 class="footer-heading">Contacto & Sede</h4>
-          <p style="font-size: 13px; line-height: 1.7; color: var(--dark-muted); margin-bottom: 10px;">
+          <h4 class="footer-heading" data-i18n="footer_heading_contact">Contacto & Sede</h4>
+          <p style="font-size: 13px; line-height: 1.7; color: var(--dark-muted); margin-bottom: 10px;" data-i18n="footer_address">
             Av. Nkwame Nkrumah 525<br>
             Prédio Antúrio, Flat 24<br>
             Cidade de Maputo · Moçambique
           </p>
-          <p style="font-family: var(--font-mono); font-size: 11px; color: #df7a4e; margin-bottom: 6px;">
+          <p style="font-family: var(--font-mono); font-size: 11px; color: #df7a4e; margin-bottom: 6px;" data-i18n="footer_cap">
             Capital Social: 3.000.000,00 MT
           </p>
           <p style="font-size: 12.5px; color: var(--dark-muted); margin-bottom: 6px;">
@@ -1084,7 +1131,7 @@
           <p style="font-size: 12.5px; color: var(--dark-muted); margin-bottom: 12px;">
             Email: <a href="mailto:contact@cobrik.co.mz" style="color: #fff;">contact@cobrik.co.mz</a>
           </p>
-          <p class="footer-motto">
+          <p class="footer-motto" data-i18n="footer_motto">
             Construímos com a solidez do tijolo e o rigor do cálculo.
           </p>
         </div>
@@ -1092,10 +1139,10 @@
 
       <div class="footer-bottom">
         <div>
-          © <span id="current-year">2026</span> COBRIK – SOCIEDADE UNIPESSOAL, LIMITADA. Todos os direitos reservados.
+          © <span id="current-year">2026</span> COBRIK – SOCIEDADE UNIPESSOAL, LIMITADA. <span data-i18n="footer_rights">Todos os direitos reservados.</span>
         </div>
         <div>
-          <a href="#topo">Voltar ao Topo ↑</a>
+          <a href="#topo" data-i18n="footer_topo">Voltar ao Topo ↑</a>
         </div>
       </div>
     </div>
@@ -1124,16 +1171,16 @@
           </p>
           <div class="modal-specs-table">
             <div class="modal-spec-row">
-              <span class="modal-spec-key">Capacidade / Escala:</span>
+              <span class="modal-spec-key" data-i18n="modal_key_scale">Capacidade / Escala:</span>
               <span class="modal-spec-val" id="modal-area">500 m² a 15.000 m²</span>
             </div>
             <div class="modal-spec-row">
-              <span class="modal-spec-key">Âmbito de Actuação:</span>
+              <span class="modal-spec-key" data-i18n="modal_key_scope">Âmbito de Actuação:</span>
               <span class="modal-spec-val" id="modal-scope">Fundações, Estrutura & Turnkey</span>
             </div>
           </div>
           <div class="modal-actions">
-            <a href="#contactos" class="btn btn-primary" onclick="document.getElementById('project-modal').classList.remove('active'); document.body.classList.remove('no-scroll');">
+            <a href="#contactos" class="btn btn-primary" data-i18n="modal_btn_cta" onclick="document.getElementById('project-modal').classList.remove('active'); document.body.classList.remove('no-scroll');">
               Solicitar Consulta Técnica ↗
             </a>
           </div>
