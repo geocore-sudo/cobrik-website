@@ -2350,6 +2350,10 @@ button {
     line-height: 1.15;
     margin-bottom: 16px;
   }
+  html[lang="en"] .hero-title {
+    font-size: clamp(1.2rem, 5.8vw, 2.2rem);
+    white-space: nowrap;
+  }
   .hero-lead {
     font-size: 14px;
     line-height: 1.65;
@@ -2755,6 +2759,10 @@ button {
 @media (max-width: 480px) {
   .hero-title {
     font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+  html[lang="en"] .hero-title {
+    font-size: clamp(1.15rem, 5.7vw, 1.85rem);
+    white-space: nowrap;
   }
   .fact-card-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
