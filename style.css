@@ -350,13 +350,14 @@ button {
   transform: translateY(-100%);
 }
 .header-inner {
-  max-width: 1340px;
+  max-width: 1380px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 clamp(16px, 4vw, 48px);
+  padding: 0 clamp(16px, 2.5vw, 36px);
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 18px;
 }
 
 /* ─── LOGÓTIPO DO CABEÇALHO (Escala de Destaque 3X Estilo METTA) ─── */
@@ -365,13 +366,12 @@ button {
   align-items: center;
   cursor: pointer;
   flex: 0 0 auto;
-  min-width: 280px;
 }
 .brand-logo {
   /* Logo imponente de grande escala e visibilidade (3x) */
   height: 98px;
   width: auto;
-  max-width: 320px;
+  max-width: 300px;
   object-fit: contain;
   display: block;
   transition: transform var(--transition-base), height var(--transition-base);
@@ -386,7 +386,7 @@ button {
 .nav {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: clamp(14px, 1.5vw, 22px);
   margin: 0 auto; /* Centraliza a navegação no computador */
 }
 
@@ -397,13 +397,14 @@ button {
 
 .nav-link {
   font-family: var(--font-heading);
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--ink);
   position: relative;
   padding: 8px 0;
+  white-space: nowrap;
   transition: color var(--transition-fast);
 }
 .nav-link::after {
@@ -429,9 +430,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 14px;
+  gap: 10px;
   flex: 0 0 auto;
-  min-width: 170px; /* Garante simetria perfeita com o logótipo */
 }
 .header-badge {
   display: flex;
@@ -467,8 +467,197 @@ button {
 }
 
 .header-cta {
-  padding: 10px 20px;
+  padding: 10px 18px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* ─── SELETOR DE IDIOMA (PT / EN) ─── */
+.lang-selector {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  padding: 0 12px;
+  background: var(--paper-subtle);
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
   font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.lang-btn:hover,
+.lang-selector.open .lang-btn {
+  background: #ffffff;
+  border-color: var(--sand-300);
+  color: var(--brick);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+}
+
+.lang-globe-icon {
+  width: 15px;
+  height: 15px;
+  stroke: currentColor;
+  flex-shrink: 0;
+}
+
+.lang-current {
+  display: inline-block;
+  line-height: 1;
+}
+
+.lang-arrow-icon {
+  width: 9px;
+  height: 9px;
+  stroke: currentColor;
+  transition: transform var(--transition-fast);
+  flex-shrink: 0;
+}
+
+.lang-selector.open .lang-arrow-icon {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
+  background: #ffffff;
+  border: 1px solid var(--sand-200);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 10005;
+}
+
+.lang-selector.open .lang-dropdown {
+  display: flex;
+  animation: langDropdownIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes langDropdownIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 8px 10px;
+  border: none;
+  background: transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  transition: all var(--transition-fast);
+  text-align: left;
+}
+
+.lang-option-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lang-flag {
+  font-size: 15px;
+  line-height: 1;
+}
+
+.lang-check {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--brick);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.lang-option:hover {
+  background: var(--sand-100);
+  color: var(--brick);
+}
+
+.lang-option.active {
+  background: rgba(184, 51, 42, 0.08);
+  color: var(--brick);
+}
+
+.lang-option.active .lang-check {
+  opacity: 1;
+}
+
+/* No drawer mobile: seletor de idioma integrado */
+.nav-mobile-lang {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--sand-200);
+}
+
+.nav-mobile-lang-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.nav-mobile-lang-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.nav-mobile-lang-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 9px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--sand-200);
+  background: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.nav-mobile-lang-btn.active {
+  background: var(--brick);
+  color: #ffffff;
+  border-color: var(--brick);
 }
 
 .menu-toggle {
@@ -2048,7 +2237,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 0;
+    gap: 8px;
   }
 
   .header-badge,
@@ -2056,12 +2245,18 @@ button {
     display: none; /* No mobile o CTA vai para dentro do drawer aberto */
   }
 
+  .lang-btn {
+    height: 36px;
+    padding: 0 10px;
+    font-size: 11px;
+  }
+
   .menu-toggle {
     display: flex;
     width: 44px;
     height: 44px;
     flex-shrink: 0;
-    margin-left: 8px;
+    margin-left: 0;
     z-index: 10001;
     position: relative;
   }
