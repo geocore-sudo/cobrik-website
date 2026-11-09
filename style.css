@@ -2346,9 +2346,10 @@ button {
     min-height: 90svh;
   }
   .hero-title {
-    font-size: clamp(1.8rem, 7.5vw, 2.6rem);
-    line-height: 1.15;
+    font-size: clamp(1.05rem, 5.1vw, 2.1rem);
+    line-height: 1.2;
     margin-bottom: 16px;
+    white-space: nowrap;
   }
   html[lang="en"] .hero-title {
     font-size: clamp(1.2rem, 5.8vw, 2.2rem);
@@ -2758,7 +2759,8 @@ button {
 
 @media (max-width: 480px) {
   .hero-title {
-    font-size: clamp(1.6rem, 7vw, 2.2rem);
+    font-size: clamp(1.05rem, 5.1vw, 1.75rem);
+    white-space: nowrap;
   }
   html[lang="en"] .hero-title {
     font-size: clamp(1.15rem, 5.7vw, 1.85rem);
